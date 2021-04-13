@@ -1,4 +1,4 @@
-package main
+package tasks
 
 import (
 	"encoding/csv"
@@ -7,7 +7,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/grplyler/tuego/format"
+	"github.com/grplyler/tuego/pkg/format"
 )
 
 type TaskManager struct {
@@ -23,7 +23,7 @@ func NewTaskManager() *TaskManager {
 func (tm *TaskManager) Load() {
 	csvfile, err := os.Open("tue.csv")
 	if err != nil {
-		log.Fatal("Error opening data file", err)
+		log.Print("Error opening data file", err)
 	}
 
 	reader := csv.NewReader(csvfile)
